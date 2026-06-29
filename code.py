@@ -27,7 +27,7 @@ def load_contacts():
 
     except json.JSONDecodeError:
         logging.error("Corrupted JSON file detected.")
-        print("⚠️ JSON file is corrupted. Starting with empty contacts.")
+        print(" JSON file is corrupted. Starting with empty contacts.")
         return {}
 
     finally:
@@ -68,11 +68,11 @@ def add_contact(contacts):
 
         save_contacts(contacts)
 
-        print("✅ Contact Added Successfully!")
+        print(" Contact Added Successfully!")
         logging.info(f"Contact '{name}' added.")
 
     except ValueError as e:
-        print(f"❌ {e}")
+        print(f" {e}")
         logging.warning(str(e))
 
 
@@ -106,7 +106,7 @@ def search_contact(contacts):
         logging.info(f"Contact '{name}' searched.")
 
     except ContactNotFoundError as e:
-        print(f"❌ {e}")
+        print(f" {e}")
         logging.warning(str(e))
 
 
@@ -120,11 +120,11 @@ def delete_contact(contacts):
         del contacts[name]
         save_contacts(contacts)
 
-        print("✅ Contact Deleted Successfully!")
+        print(" Contact Deleted Successfully!")
         logging.info(f"Contact '{name}' deleted.")
 
     except ContactNotFoundError as e:
-        print(f"❌ {e}")
+        print(f" {e}")
         logging.warning(str(e))
 
 
@@ -160,11 +160,11 @@ def main():
                 break
 
             else:
-                print("❌ Invalid Choice. Please select 1-5.")
+                print(" Invalid Choice. Please select 1-5.")
                 logging.warning("Invalid menu choice entered.")
 
         except ValueError:
-            print("❌ Please enter a valid number.")
+            print("Please enter a valid number.")
             logging.warning("Non-numeric menu input entered.")
 
         finally:
